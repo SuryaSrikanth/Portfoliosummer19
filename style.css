@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+body{
+    margin: 0%;
+    background-color: rgb(243, 243, 243);
+}
+#nav-bar{
+    margin-top: 0%;
+    background: linear-gradient(rgb(132, 36, 223),rgb(113, 26, 194),rgb(185, 89, 165));
+    color: rgb(255, 231, 250);
+    height:225px;
+}
+
+#main-name{
+
+    margin-left: 40px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 80px;
+}
+#sub-text{    
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 40px;
+    font-size: 30px;
+}
+#college-link{
+    color: white;
+    display: inline-block;
+    transform: scale(1);
+    transition: transform 2s;
+}
+#college-link:hover{
+    transform: scale(0.8);
+}
+
+svg {
+    display: block;
+    position: fixed;
+    top: 19%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+#navigation{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(185, 89, 165);
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    top:0;
+    position: sticky;
+    border-bottom-left-radius:20%;
+    border-bottom-right-radius:20%;
+}
+#navigation a{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+
+#intro-head{
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 8%;
+}
+#email{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Roboto';
+}
+.list{
+    margin-top: 25px;
+    text-align: center;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+}
+#list-val{
+    padding: 3%;
+    font-family:'Roboto';
+}
+
+#coll{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

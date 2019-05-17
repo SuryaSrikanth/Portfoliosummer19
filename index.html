@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div id="nav-bar">
+      <span id="main-name">Surya</span><br /><span id="sub-text"
+        >2nd Year CSE @<a href="https://iiits.ac.in" target="_blank"
+          ><span id="college-link">IIIT SriCity </span></a
+        >
+      </span>
+    </div>
+    <svg width="200" height="200">
+      <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+        <feOffset in="blur" dx="2.5" dy="2.5" />
+      </filter>
+
+      <g>
+        <circle
+          id="shadow"
+          style="fill:rgba(0,0,0,0.1)"
+          cx="97"
+          cy="100"
+          r="87"
+          filter="url(#innerShadow)"
+        ></circle>
+        <circle
+          id="circle"
+          style="stroke: rgb(255, 255, 255); stroke-width: 12px; fill:rgb(103, 0, 199)"
+          cx="100"
+          cy="100"
+          r="80"
+        ></circle>
+      </g>
+      <g>
+        <line
+          x1="100"
+          y1="100"
+          x2="100"
+          y2="55"
+          transform="rotate(80 100 100)"
+          style="stroke-width: 3px; stroke: #fffbf9;"
+          id="hourhand"
+        >
+          <animatetransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            dur="43200s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line
+          x1="100"
+          y1="100"
+          x2="100"
+          y2="40"
+          style="stroke-width: 4px; stroke: #fdfdfd;"
+          id="minutehand"
+        >
+          <animatetransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            dur="3600s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line
+          x1="100"
+          y1="100"
+          x2="100"
+          y2="30"
+          style="stroke-width: 2px; stroke: #C1EFED;"
+          id="secondhand"
+        >
+          <animatetransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            dur="60s"
+            repeatCount="indefinite"
+          />
+        </line>
+      </g>
+      <circle
+        id="center"
+        style="fill:#128A86; stroke: #C1EFED; stroke-width: 2px;"
+        cx="100"
+        cy="100"
+        r="3"
+      ></circle>
+    </svg>
+    <script>
+      var hands = [];
+      hands.push(document.querySelector("#secondhand > *"));
+      hands.push(document.querySelector("#minutehand > *"));
+      hands.push(document.querySelector("#hourhand > *"));
+
+      var cx = 100;
+      var cy = 100;
+
+      function shifter(val) {
+        return [val, cx, cy].join(" ");
+      }
+
+      var date = new Date();
+      var hoursAngle = (360 * date.getHours()) / 12 + date.getMinutes() / 2;
+      var minuteAngle = (360 * date.getMinutes()) / 60;
+      var secAngle = (360 * date.getSeconds()) / 60;
+
+      hands[0].setAttribute("from", shifter(secAngle));
+      hands[0].setAttribute("to", shifter(secAngle + 360));
+      hands[1].setAttribute("from", shifter(minuteAngle));
+      hands[1].setAttribute("to", shifter(minuteAngle + 360));
+      hands[2].setAttribute("from", shifter(hoursAngle));
+      hands[2].setAttribute("to", shifter(hoursAngle + 360));
+
+      for (var i = 1; i <= 12; i++) {
+        var el = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        el.setAttribute("x1", "100");
+        el.setAttribute("y1", "30");
+        el.setAttribute("x2", "100");
+        el.setAttribute("y2", "40");
+        el.setAttribute("transform", "rotate(" + (i * 360) / 12 + " 100 100)");
+        el.setAttribute("style", "stroke: #ffffff;");
+        document.querySelector("svg").appendChild(el);
+      }
+    </script>
+
+    <div id="navigation">
+      <a href="#projects">Projects</a>
+      <a href="https://github.com/suryasrikanth" target="_blank">Github</a>
+      <a href="#tech">Technologies</a>
+      <a href="#email">Email</a>
+    </div>
+    <div id="intro-head">
+      <span id="tech">Technologies</span>
+    </div>
+    <div class="list">
+      <div id="list-val">HTML/CSS</div>
+      <div id="list-val">JavaScript</div>
+      <div id="list-val">Vector graphics(SVG)</div>
+      <div id="list-val">Python</div>
+      <div id="list-val">Django</div>
+      <div id="list-val">NodeJS</div>
+      <div id="list-val">ReactJS</div>
+      <div id="list-val">Algorithms</div>
+      <div id="list-val">DataStructures</div>
+    </div>
+    <br />
+    <hr />
+    <div id="intro-head">
+      <span id="projects">Projects</span>
+    </div>
+
+    <br />
+
+    <div class="container">
+      <ul class="collapsible expandable" id="coll">
+        <li>
+          <div class="collapsible-header">Academic Office</div>
+          <div class="collapsible-body">
+            <span
+              >A website to automate the works of the academic office of an
+              educational institute. <br />
+              Code:
+              <a
+                href="https://github.com/MDfarazuddin/ASE-project"
+                target="_blank"
+                >Academic Office</a
+              ><br
+            /></span>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Shopping mall management</div>
+          <div class="collapsible-body">
+            <span
+              >A website to buy, sell, rent or advertise for a shopping mall.
+              <br />
+              Code:
+              <a
+                href="https://github.com/mprerana/DBMS_Project/tree/master/Group_19"
+                target="_blank"
+                >Shopping Mall Management System</a
+              ></span
+            >
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Text on Picture</div>
+          <div class="collapsible-body">
+            <span
+              >A simple react app that allows users to add text on top of
+              pictures.(Made with Scrimba) <br />
+              Code:
+              <a
+                href="https://github.com/SuryaSrikanth/react-test"
+                target="_blank"
+                >Meme-generator</a
+              >
+              <br />
+              <a
+                href="https://suryasrikanth.github.io/react-test"
+                target="_blank"
+                >View Site</a
+              ><br />
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      var elem = document.querySelector(".collapsible.expandable");
+      var instance = M.Collapsible.init(elem, {
+        accordion: false
+      });
+    </script>
+
+    <div id="intro-head">
+      <span>Dedicated to making web, beautiful</span>
+    </div>
+    <hr />
+    <div id="email">
+      <address>&copy;srisuryasrikanth.g17@iiits.in</address>
+    </div>
+  </body>
+</html>
